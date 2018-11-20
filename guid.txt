@@ -1,0 +1,6 @@
+ubuntu之screen命令管理会话 https://blog.csdn.net/u013901768/article/details/81189348
+linux screen 命令详解，关掉窗口或者断开连接，继续执行命令 http://bg.artuion.com/linux/325.html
+git 教程 https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000
+github https://github.com/baohenglei/getSchoolNews
+huawei ssh key 在baohe\documents\下，但putty暂时不能正确识别，只能账号密码
+add ssh key https://blog.csdn.net/d27liu/article/details/53332082

@@ -11,6 +11,7 @@ MAX=300
 web='http://dean.xjtu.edu.cn/'
 time_r=20
 print('Now gointo circle.sleep=',time_r)
+
 while(True):
     #print('while')
     try:
@@ -45,9 +46,14 @@ while(True):
         for x in href_list:
             if not (x[0] in already) :
                 list_new.append(x)
-                print('To add : '+x[0]+'  '+x[1])
+                print(time.strftime('%Y.%m.%d %H:%M:%S',time.localtime(time.time())),'To add : '+x[0]+'  '+x[1])
+                count_m=0
                 while(not m.mailing('教务处:'+x[1],x[1]+'\n'+web+x[0])):
-                    pass
+                    time.sleep(5)
+                    count_m=count_m+1
+                    if(count_m>3):
+                        time.sleep(time_r)
+                        raise Exception('Mailing failed,skip and try while circle again.')
         with open('data.txt','w',encoding=CODING) as fo:
             for x in list_new:
                 fo.write(x[0]+'\n')
@@ -55,7 +61,7 @@ while(True):
                 fo.write(x+'\n')
         time.sleep(time_r)
     except Exception as e:
-        print(e)
+        print(time.strftime('%Y.%m.%d %H:%M:%S',time.localtime(time.time())),e)
 
 #print(len(already))
 #with open('data.txt','a',encoding=CODING) as fo:

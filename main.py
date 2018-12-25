@@ -15,7 +15,7 @@ print('Now gointo circle.sleep=',time_r)
 while(True):
     #print('while')
     try:
-        html_text=requests.get(web).content.decode('utf-8','ignore')
+        html_text=requests.get(web,timeout=5).content.decode('utf-8','ignore')
         soup = BeautifulSoup(html_text,'html.parser')
         myattrs={'class':'xstz_list_ul'}
         tzs=soup.find_all(name='ul',attrs=myattrs)
@@ -53,7 +53,7 @@ while(True):
                     count_m=count_m+1
                     if(count_m>3):
                         time.sleep(time_r)
-                        raise Exception('Mailing failed,skip and try while circle again.')
+                        raise Exception('Mailing failed 4 times,skip and try while circle again.')
         with open('data.txt','w',encoding=CODING) as fo:
             for x in list_new:
                 fo.write(x[0]+'\n')
